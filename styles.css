@@ -1,0 +1,51 @@
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    /* horizontal center */
+    align-items: center;
+    /* vertical center */
+    min-height: 100vh;
+    /* full viewport height */
+    margin: 0;
+    /* remove default body margin */
+}
+
+
+.key {
+    border: 4px solid white;
+    border-radius: 1px;
+    color: white;
+    font-size: 20px;
+    width: 100px;
+    padding: 20px 10px;
+    text-align: center;
+    margin: 10px;
+    text-shadow: 0 0 5px rgb(255, 255, 255);
+    transition: all 0.07s;
+}
+
+.playing {
+    transform: scale(1.1);
+    border-color: white;
+    box-shadow: 0 0 5px white;
+}
+
+kbd {
+    display: block;
+    font-size: 40px;
+}
+
+.sound {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgb(255, 255, 255);
+}
+
+.keys {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
