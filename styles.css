@@ -2,13 +2,9 @@ body {
     background-color: black;
     display: flex;
     justify-content: center;
-    /* horizontal center */
     align-items: center;
-    /* vertical center */
     min-height: 100vh;
-    /* full viewport height */
     margin: 0;
-    /* remove default body margin */
 }
 
 
