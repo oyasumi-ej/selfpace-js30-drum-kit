@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    <div class="output"> </div>
+
     <div class="keys">
         <div data-key="65" class="key">
             <kbd>A</kbd>
@@ -48,7 +50,7 @@
         </div>
     </div>
 
-    <audio data-key="65" src=""></audio>
+    <!-- <audio data-key="65" src=""></audio>
     <audio data-key="83" src=""></audio>
     <audio data-key="68" src=""></audio>
     <audio data-key="70" src=""></audio>
@@ -56,26 +58,31 @@
     <audio data-key="72" src=""></audio>
     <audio data-key="74" src=""></audio>
     <audio data-key="75" src=""></audio>
-    <audio data-key="76" src=""></audio>
+    <audio data-key="76" src=""></audio> --> <!-- DONT HAVE ANY INDIVIDUAL AUDIO FILES -->
 
     <script>
         function playSound(e) { // gumawa ng function para sa pag pplay ng sound
-            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); // storing lang ng audio na match sa keycode
+            //const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); // storing lang ng audio na match sa keycode
             const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); // storing lang ng key na match sa keycode
-            if (!audio) return; // stop yung function pag walang nag match sa mga naka declare na data key
-            audio.currentTime = 0; // rewind sa start
-            audio.play();
-            key.classList.add('playing');
+            if (!key) return; // stop yung function pag walang nag match sa mga naka declare na data key
+            const soundText = key.querySelector('.sound').textContent.toUpperCase(); //kuhain yung text content ng sound at gawing uppercase
+            const output = document.querySelector('.output'); // select yung output div
+            output.textContent = soundText; // ilagay yung sound text sa output div
+            // key.currentTime = 0;
+            //audio.play(); //play yung audio
+            key.classList.add('playing'); //tawagin yung class ng playing for animation
         };
 
         function removeTransition(e) {
             if (e.propertyName !== 'transform') return; // skip if it's not a transform
-            this.classList.remove('playing');
+            this.classList.remove('playing'); // remove yung class na playing pag tapos na yung transition
+            const output = document.querySelector('.output');  // select yung output div
+            output.textContent = ''; // clear yung output div pag tapos na yung transition
         }
 
-        const keys = document.querySelectorAll('.key');
-        keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-        window.addEventListener('keydown', playSound);
+        const keys = document.querySelectorAll('.key'); // select lahat ng key
+        keys.forEach(key => key.addEventListener('transitionend', removeTransition)); // tawagin yung function na removeTransition pag tapos na yung transition
+        window.addEventListener('keydown', playSound); // tawagin yung function na playSound pag may pinindot na key
 
     </script>
 </body>

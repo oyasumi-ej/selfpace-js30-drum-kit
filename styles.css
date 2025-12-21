@@ -5,8 +5,23 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    flex-direction: column;
 }
 
+.output {
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    text-shadow: 0 0 5px rgb(255, 255, 255);
+    margin-bottom: 40px;
+}
+
+.keys {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
 
 .key {
     border: 4px solid white;
@@ -21,15 +36,15 @@ body {
     transition: all 0.07s;
 }
 
+kbd {
+    display: block;
+    font-size: 40px;
+}
+
 .playing {
     transform: scale(1.1);
     border-color: white;
     box-shadow: 0 0 5px white;
-}
-
-kbd {
-    display: block;
-    font-size: 40px;
 }
 
 .sound {
@@ -37,11 +52,4 @@ kbd {
     text-transform: uppercase;
     letter-spacing: 1px;
     text-shadow: 0 0 5px rgb(255, 255, 255);
-}
-
-.keys {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
 }
